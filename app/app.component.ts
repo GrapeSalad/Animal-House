@@ -4,19 +4,23 @@ import {Animal} from './animal.model';
 @Component({
   selector: 'app-root',
   template: `
-  <div class="container">
-    <h1>{{currentFocus}}</h1>
-    <hr>
-    <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)"></animal-list>
-    <edit-animal [childSelectedAnimal]="masterSelectedAnimal" (finishedEditingSender)="finishedEditing()"></edit-animal>
+    <div class="container">
+      <h1>{{currentFocus}}</h1>
+      <h3>{{description}}</h3>
+      <hr>
+      <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)"></animal-list>
 
-  </div>
+      <edit-animal [childSelectedAnimal]="masterSelectedAnimal" (finishedEditingSender)="finishedEditing()"></edit-animal>
+
+      <add-animal (addAnimalSender)="addAnimal($event)"></add-animal>
+    </div>
   `
 })
 
 
 export class AppComponent {
   currentFocus: string = "Welcome to the Animal House!"
+  description: string = "Tell us what animals you want to see!"
   masterAnimalList: Animal[] = [
     new Animal('Arctic Fox', 'Moon', 2, 'Carnivore', 'Northern Trail', 5, 'Female', 'Cool Shade', 'Loud noises'),
     new Animal('Ocelot', 'Baboo', 5, 'Carnivore', 'Tunt Manor', 2, 'Male', 'Attacking Mr. Archer', 'Mr. Archer'),
@@ -26,11 +30,14 @@ export class AppComponent {
   masterSelectedAnimal: Animal = null;
 
   editAnimal(clickedAnimal){
-    console.log(clickedAnimal);
     this.masterSelectedAnimal = clickedAnimal;
   }
 
   finishedEditing(){
     this.masterSelectedAnimal = null;
+  }
+
+  addAnimal(newAnimalFromChild: Animal) {
+    this.masterAnimalList.push(newAnimalFromChild);
   }
 }

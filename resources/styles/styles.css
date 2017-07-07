@@ -1,0 +1,11 @@
+.hideMe {
+  display: none;
+}
+
+.showMe {
+  display: visible;
+}
+
+.cow {
+  background: url('./resources/images/cow.gif');
+}
