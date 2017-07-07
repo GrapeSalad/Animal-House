@@ -5,7 +5,7 @@ import {Animal} from './animal.model';
   selector:'animal-list',
   template:`
     <div>
-      <h2 class="text-center">What we have now:</h2>
+      <h2 class="text-center">Who we have now</h2>
       <div class="text-center">
         <p>Sort/View</p>
         <select (change)="onChange($event.target.value)">

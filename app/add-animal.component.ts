@@ -43,7 +43,7 @@ import {Animal} from './animal.model';
       </div>
     </div>
     <div *ngIf="addAnimal">
-    <div class="ng-class: getClickedAnimal(name);"></div>
+    <div id="selectedAnimal"></div>
       <h1 class="text-center">Tell us more about this animal!</h1>
       <table class="addTable">
         <tr>
@@ -101,7 +101,7 @@ export class AddAnimalComponent {
     }
   }
   addAnimal: boolean = false;
-  hidden: boolean = false;
+  hidden: boolean = true;
 
   hideWhenClicked(){
     if (this.hidden === false)
