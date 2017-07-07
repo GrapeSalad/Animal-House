@@ -34,9 +34,9 @@ To view the code you can open the files using your editor of choice.
 
 ## Wishlist
 
-1.  Populate master list with data based on animal clicked for young children.
-2.  On img hover, will show list of information about the animal.
-3.  Better Styling, more dynamic styling.
++ Populate master list with data based on animal clicked for young children.
++ On img hover, will show list of information about the animal.
++ Better Styling, more dynamic styling.
 
 
 ## Known Bugs
@@ -60,12 +60,16 @@ If you have any issues or have questions, ideas, concerns, or contributions plea
 
 ### Credits
 
++ colorzilla
++ color.adobe.com
++ fonts.google.com
+
 Some credit for images goes to:
-* MakeAGIF.com
-* CFC
-* Giphy
-* Google
-* gifbin.com
++ MakeAGIF.com
++ CFC
++ Giphy
++ Google
++ gifbin.com
 
 ### License
 This software is licensed under the MIT license.

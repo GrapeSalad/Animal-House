@@ -7,7 +7,9 @@ import {Animal} from './animal.model';
     <div class="container">
       <div class="jumbotron">
         <h1>{{currentFocus}}</h1>
-        <h3>{{description}}</h3>
+        <div id="floatyBox">
+          <h3>{{description}}</h3>
+        </div>
       </div>
       <hr>
       <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)"></animal-list>

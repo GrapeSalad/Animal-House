@@ -44,36 +44,44 @@ import {Animal} from './animal.model';
     </div>
     <div *ngIf="addAnimal">
     <div class="ng-class: getClickedAnimal(name);"></div>
-      <h1>Tell us more about this animal!</h1>
-      <div>
-        <label>Species</label>
-        <input #newSpecies>
-        <label>Name</label>
-        <input #newName>
-        <label>Age</label>
-        <input type="number" #newAge>
-        <select #newDiet>
-          <option> Carnivore </option>
-          <option> Herbivore </option>
-          <option> Omnivore </option>
-        </select>
-        <label>Location</label>
-        <input #newLocation>
-        <label>Number of Caretakers</label>
-        <input type="number" #newNumCaretakers>
-        <select #newSex>
-          <option> Male </option>
-          <option> Female </option>
-          <option> Not prescribing to Gender Norms </option>
-        </select>
-        <label>Likes</label>
-        <input #newLikes>
-        <label>Dislikes</label>
-        <input #newDislikes>
-      </div>
-      <div>
-        <button (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newNumCaretakers.value, newSex.value, newLikes.value, newDislikes.value);">Add</button>
-      </div>
+      <h1 class="text-center">Tell us more about this animal!</h1>
+      <table class="addTable">
+        <tr>
+          <th>Species</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Diet</th>
+          <th>Location</th>
+        </tr>
+        <tr>
+          <td><input #newSpecies></td>
+          <td><input #newName></td>
+          <td><input type="number" #newAge></td>
+          <td><select #newDiet>
+            <option> Carnivore </option>
+            <option> Herbivore </option>
+            <option> Omnivore </option>
+          </select></td>
+          <td><input #newLocation></td>
+        </tr>
+        <tr>
+          <th>Caretakers</th>
+          <th>Sex</th>
+          <th>Likes</th>
+          <th>Dislikes</th>
+          <td rowspan="2"><button class="addButton" (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newNumCaretakers.value, newSex.value, newLikes.value, newDislikes.value);">Add</button></td>
+        </tr>
+        <tr>
+          <td><input type="number" #newNumCaretakers></td>
+          <td><select #newSex>
+            <option> Male </option>
+            <option> Female </option>
+            <option> Not prescribing to Gender Norms </option>
+          </select></td>
+          <td><input #newLikes></td>
+          <td><input #newDislikes></td>
+        </tr>
+      </table>
       <hr>
     </div>
   `
