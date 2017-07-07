@@ -4,30 +4,46 @@ import {Animal} from './animal.model';
 @Component ({
   selector: 'add-animal',
   template: `
-    <div id="animalImages" class="hideWhenClicked()">
-      <table>
-        <tr>
-          <th class="text-center" colspan="3">Click An Animal to add it to the zoo!</th>
-        </tr>
-        <tr>
-          <td><img (click)="animalImageSelected('cow')" src="./resources/images/cow.gif" alt="Have a Cow!"></td>
-          <td><img (click)="animalImageSelected('bear')" src="./resources/images/bearWave.gif" alt="What a bear!"></td>
-          <td><img (click)="animalImageSelected('gorilla')" src="./resources/images/gorilla.gif" alt="Silverback Strut!"></td>
-        </tr>
-        <tr>
-          <td><img (click)="animalImageSelected('goat-horse')" src="./resources/images/goatHorse.gif" alt="Kid on tde Horse range!"></td>
-          <td><img (click)="animalImageSelected('cheetah')" src="./resources/images/cheetah.gif" alt="Fast Cheetah!"></td>
-          <td><img (click)="animalImageSelected('platypus')" src="./resources/images/platypus.gif" alt="Platypus Tickles!"></td>
-        </tr>
-        <tr>
-          <td><img (click)="animalImageSelected('aye-aye')" src="./resources/images/ayeAye.gif" alt="Aye, creepy; Aye, cute!"></td>
-          <td><img (click)="animalImageSelected('red-panda')" src="./resources/images/redPanda.gif" alt="Red panda uses intimidate!"></td>
-          <td><img (click)="animalImageSelected('panda')" src="./resources/images/pandas.gif" alt="Panda Slide!"></td>
-        </tr>
-      </table>
+    <div id="animalImages" [style.class]="hideWhenClicked()">
+      <div class="row">
+        <h3 class="text-center">Click an Animal to add it to the Zoo!</h3>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <img (click)="animalImageSelected('cow')" src="./resources/images/cow.gif" alt="Have a Cow!">
+        </div>
+        <div class="col-md-4">
+          <img (click)="animalImageSelected('bear')" src="./resources/images/bearWave.gif" alt="What a bear!">
+        </div>
+        <div class="col-md-4">
+          <img (click)="animalImageSelected('gorilla')" src="./resources/images/gorilla.gif" alt="Silverback Strut!">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <img (click)="animalImageSelected('goat-horse')" src="./resources/images/goatHorse.gif" alt="Kid on tde Horse range!">
+        </div>
+        <div class="col-md-4">
+          <img (click)="animalImageSelected('cheetah')" src="./resources/images/cheetah.gif" alt="Fast Cheetah!">
+        </div>
+        <div class="col-md-4">
+          <img (click)="animalImageSelected('platypus')" src="./resources/images/platypus.gif" alt="Platypus Tickles!">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <img (click)="animalImageSelected('aye-aye')" src="./resources/images/ayeAye.gif" alt="Aye, creepy; Aye, cute!">
+        </div>
+        <div class="col-md-4">
+          <img (click)="animalImageSelected('red-panda')" src="./resources/images/redPanda.gif" alt="Red panda uses intimidate!">
+        </div>
+        <div class="col-md-4">
+          <img (click)="animalImageSelected('panda')" src="./resources/images/pandas.gif" alt="Panda Slide!">
+        </div>
+      </div>
     </div>
     <div *ngIf="addAnimal">
-      <div class="getClickedAnimal(name)">Stuff</div>
+    <div class="ng-class: getClickedAnimal(name);"></div>
       <h1>Tell us more about this animal!</h1>
       <div>
         <label>Species</label>
@@ -67,8 +83,14 @@ export class AddAnimalComponent {
   @Output() addAnimalSender = new EventEmitter();
 
   submitForm(species: string, name: string, age: number, diet: string, location: string, numCaretakers: number, sex: string, likes: string, disLikes: string) {
-    var newAnimalToAdd: Animal = new Animal(species, name, age, diet, location, numCaretakers, sex, likes, disLikes);
-    this.addAnimalSender.emit(newAnimalToAdd);
+    if(species === "" || name === "" || age === null || diet === "" || location === "" || numCaretakers === null || sex === "" || likes === "" || disLikes === ""){
+      alert("Please fill out everything!");
+    }
+    else{
+      var newAnimalToAdd: Animal = new Animal(species, name, age, diet, location, numCaretakers, sex, likes, disLikes);
+      this.addAnimalSender.emit(newAnimalToAdd);
+      this.addAnimal = false;
+    }
   }
   addAnimal: boolean = false;
   hidden: boolean = false;
@@ -76,26 +98,20 @@ export class AddAnimalComponent {
   hideWhenClicked(){
     if (this.hidden === false)
     {
-      console.log(this.hidden + " value of hidden in true statment")
-      this.hidden = true;
-      this.addAnimal = true;
       return "hideMe";
     }
     else{
-      console.log(this.hidden + " value of hidden in false statment")
-      this.hidden = false;
-      this.addAnimal = false;
       return "showMe";
     }
   }
 
   getClickedAnimal(animal: string){
+    console.log("clicked " + animal);
     return animal;
   }
 
   animalImageSelected(animalName: string){
-    console.log("clicked " + animalName);
-    // this.addAnimal = true;
+    this.addAnimal = true;
     this.hideWhenClicked();
     this.getClickedAnimal(animalName);
   }

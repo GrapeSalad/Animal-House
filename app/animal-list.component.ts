@@ -5,18 +5,40 @@ import {Animal} from './animal.model';
   selector:'animal-list',
   template:`
     <div>
-      <h2>What we have now:</h2>
-      <p>Sort/View</p>
-      <select (change)="onChange($event.target.value)">
-        <option value="All">All Animals</option>
-        <option value="Young">Young</option>
-        <option value="Mature">Mature</option>
-      </select>
-      <p>Click anywhere to edit:</p>
-      <ul>
-        <li (click)="editButtonHasBeenClicked(currentAnimal)" *ngFor="let currentAnimal of childAnimalList | selector: filterBySelector">{{currentAnimal.species}}, {{currentAnimal.name}}, {{currentAnimal.age}}, {{currentAnimal.diet}}, {{currentAnimal.location}}, {{currentAnimal.numCaretakers}}, {{currentAnimal.sex}}, {{currentAnimal.likes}}, {{currentAnimal.disLikes}}
-        </li>
-      </ul>
+      <h2 class="text-center">What we have now:</h2>
+      <div class="text-center">
+        <p>Sort/View</p>
+        <select (change)="onChange($event.target.value)">
+          <option value="All">All Animals</option>
+          <option value="Young">Young</option>
+          <option value="Mature">Mature</option>
+        </select>
+      </div>
+      <p class="text-center">Click anywhere to edit:</p>
+      <table>
+        <tr>
+          <th>Species</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Diet</th>
+          <th>Location</th>
+          <th>Caretakers</th>
+          <th>Sex</th>
+          <th>Likes</th>
+          <th>Dislikes</th>
+        </tr>
+        <tr (click)="editButtonHasBeenClicked(currentAnimal)" *ngFor="let currentAnimal of childAnimalList | selector: filterBySelector">
+          <td>{{currentAnimal.species}}</td>
+          <td>{{currentAnimal.name}}</td>
+          <td>{{currentAnimal.age}}</td>
+          <td>{{currentAnimal.diet}}</td>
+          <td>{{currentAnimal.location}}</td>
+          <td>{{currentAnimal.numCaretakers}}</td>
+          <td>{{currentAnimal.sex}}</td>
+          <td>{{currentAnimal.likes}}</td>
+          <td>{{currentAnimal.disLikes}}</td>
+        </tr>
+      </table>
     </div>
     <hr>
   `

@@ -1,3 +1,39 @@
+body{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcedfc+0,f2fffd+100 */
+  background: #fcedfc; /* Old browsers */
+  background: -moz-linear-gradient(top,  #fcedfc 0%, #f2fffd 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #fcedfc 0%,#f2fffd 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #fcedfc 0%,#f2fffd 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcedfc', endColorstr='#f2fffd',GradientType=0 ); /* IE6-9 */
+  font-family: 'Gochi Hand', cursive;
+}
+
+
+img {
+  height: auto;
+  width: 250px;
+}
+
+table, th, td {
+  border: 1px solid #A19591;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  height: 40px;
+  font-size: 18px;
+  text-align: center;
+}
+
+td {
+  height: 25px;
+  font-size: 16px;
+  text-align: center;
+}
+
 .hideMe {
   display: none;
 }
@@ -6,6 +42,24 @@
   display: visible;
 }
 
+img:active {
+  -webkit-box-shadow: 13px 7px 79px 17px rgba(0,0,0,0.75);
+  -moz-box-shadow: 13px 7px 79px 17px rgba(0,0,0,0.75);
+  box-shadow: 13px 7px 79px 17px rgba(0,0,0,0.75);
+}
+
+.row div {
+  padding: 10px;
+}
+
+.undefined{
+  border: 1px solid red;
+  height: 100px;
+  width: 100px;
+}
+
 .cow {
-  background: url('./resources/images/cow.gif');
+  background: red;
+  height: 100px;
+  width: 100px;
 }
