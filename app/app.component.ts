@@ -6,8 +6,9 @@ import {Animal} from './animal.model';
   template: `
   <div class="container">
     <h1>{{currentFocus}}</h1>
-
-    <animal-list></animal-list>
+    <hr>
+    <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)"></animal-list>
+    <edit-animal [childSelectedAnimal]="masterSelectedAnimal" (finishedEditingSender)="finishedEditing()"></edit-animal>
 
   </div>
   `
@@ -23,4 +24,13 @@ export class AppComponent {
   ]
 
   masterSelectedAnimal: Animal = null;
+
+  editAnimal(clickedAnimal){
+    console.log(clickedAnimal);
+    this.masterSelectedAnimal = clickedAnimal;
+  }
+
+  finishedEditing(){
+    this.masterSelectedAnimal = null;
+  }
 }
