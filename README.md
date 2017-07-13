@@ -19,12 +19,12 @@ This web application will allow children to request that new animals be added to
 
 ## Setup/Installation Requirements
 
-1.  Go to the Github repository page at https://github.com/GrapeSalad/Animal-House
+1.  Go to the Github repository [page](https://github.com/GrapeSalad/Animal-House)
 2.  Click the "download or clone" button and copy the link.
 3.  In your Desktop open the terminal
 4.  In the terminal navigate to the directory in which you want to store the app files.
 5.  Clone using "git clone " and the copied link.
-6.  You may need to install node.js and npm to run this app, and you can find free instructions from the Epicodus *FREE* lessons. Link to the lesson: https://www.learnhowtoprogram.com/javascript/getting-started-with-javascript-2f9a73dc-b7f5-4a22-9101-e69d49f552ac/installing-node-js
+6.  You may need to install node.js and npm to run this app, and you can find free instructions from the Epicodus *FREE* lessons. Link to the [lesson](https://www.learnhowtoprogram.com/javascript/getting-started-with-javascript-2f9a73dc-b7f5-4a22-9101-e69d49f552ac/installing-node-js)
 7.  To confirm that node and npm are installed correctly run "node -v" and "npm -v".
 8.  To install the necessary files for running the gulp server please follow the **CLONING PROJECT** instructions above.
 9.  To start the web server necessary for proper app functionality you will need to type in "gulp build" then "gulp serve".
